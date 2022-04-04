@@ -16,7 +16,7 @@ interface RootProps {
 }
 const RootContext = createContext<RootContextData>({} as RootContextData);
 
-export function RootProvider({ children, token }: RootProps) {
+export const RootProvider = ({ children, token }: RootProps) => {
   const [sessionToken, setSessionToken] = useState("");
   useEffect(() => {
     if (token && token === "5f768b56-8662-4071-88c4-f728a9a950de") {
@@ -33,7 +33,7 @@ export function RootProvider({ children, token }: RootProps) {
       {children}
     </RootContext.Provider>
   );
-}
+};
 
 export function useTransactions() {
   const context = useContext(RootContext);
